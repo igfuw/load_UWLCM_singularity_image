@@ -27,7 +27,7 @@ runs:
           
   - name: Cache UWLCM Singularity image
     id: cache_singularity
-    uses: actions/cache@v2
+    uses: actions/cache@v4
     with:
       path: '${{ inputs.path }}/uwlcm_${{ inputs.tag }}.sif'
       key: '${{ inputs.tag }}'
