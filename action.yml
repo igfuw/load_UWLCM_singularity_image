@@ -7,7 +7,7 @@ inputs:
   tag:
     description: 'Image tag'
     required: true
-    default: 'ubuntu_20_04_cuda_11_4'
+    default: 'uwlcm_ubuntu_24_04_cuda_12_9_0'
 
 runs:
   using: "composite"
@@ -39,7 +39,8 @@ runs:
       [ "${{steps.cache_singularity.outputs.cache-hit}}" != "true" ] && \
       {
       mkdir '${{ inputs.path }}';
-      singularity pull --disable-cache --dir '${{ inputs.path }}' library://pdziekan/default/uwlcm:${{ inputs.tag }};
+#      singularity pull --disable-cache --dir '${{ inputs.path }}' library://pdziekan/default/uwlcm:${{ inputs.tag }};
+      wget -P '${{ inputs.path }}' https://zenodo.org/records/15591478/files/${{ inputs.tag }}.sif
       } \
       || \
       true
