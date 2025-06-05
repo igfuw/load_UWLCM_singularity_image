@@ -39,7 +39,6 @@ runs:
       [ "${{steps.cache_singularity.outputs.cache-hit}}" != "true" ] && \
       {
       mkdir '${{ inputs.path }}';
-#      singularity pull --disable-cache --dir '${{ inputs.path }}' library://pdziekan/default/uwlcm:${{ inputs.tag }};
       wget -P '${{ inputs.path }}' https://zenodo.org/records/15591478/files/${{ inputs.tag }}.sif
       } \
       || \
