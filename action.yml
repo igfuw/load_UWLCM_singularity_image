@@ -46,6 +46,6 @@ runs:
     # disable Apptainer cache, we cache manually
 
   - name: Set friendly Apptainer image name
-    uses: allenevans/set-env@v2.0.0
+    uses: allenevans/set-env@v4.0.0
     with:
       SI: '${{ inputs.path }}/${{ inputs.tag }}.sif'
