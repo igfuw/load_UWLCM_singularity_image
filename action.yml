@@ -39,7 +39,7 @@ runs:
       [ "${{steps.cache_singularity.outputs.cache-hit}}" != "true" ] && \
       {
       mkdir '${{ inputs.path }}';
-      wget -qP '${{ inputs.path }}' https://zenodo.org/records/15591478/files/${{ inputs.tag }}.sif
+      wget --no-verbose -P '${{ inputs.path }}' https://zenodo.org/records/15591478/files/${{ inputs.tag }}.sif
       } \
       || \
       true
@@ -48,4 +48,4 @@ runs:
   - name: Set friendly Singularity image name
     uses: allenevans/set-env@v2.0.0
     with:
-      SI: '${{ inputs.path }}/uwlcm_${{ inputs.tag }}.sif'
+      SI: '${{ inputs.path }}/${{ inputs.tag }}.sif'
