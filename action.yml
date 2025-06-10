@@ -39,7 +39,7 @@ runs:
       [ "${{steps.cache_apptainer.outputs.cache-hit}}" != "true" ] && \
       {
       mkdir '${{ inputs.path }}';
-      wget --no-verbose -P '${{ inputs.path }}' https://zenodo.org/records/15591478/files/${{ inputs.tag }}.sif
+      wget --no-verbose -P '${{ inputs.path }}' https://zenodo.org/records/15630519/files/${{ inputs.tag }}.sif
       } \
       || \
       true
