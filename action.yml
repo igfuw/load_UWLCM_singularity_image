@@ -29,7 +29,7 @@ runs:
     id: cache_apptainer
     uses: actions/cache@v4
     with:
-      path: '${{ inputs.path }}/uwlcm_${{ inputs.tag }}.sif'
+      path: '${{ inputs.path }}/${{ inputs.tag }}.sif'
       key: '${{ inputs.tag }}'
       
   - name: Download UWLCM Apptainer image
