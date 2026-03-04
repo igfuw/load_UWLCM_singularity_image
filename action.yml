@@ -39,7 +39,8 @@ runs:
       [ "${{steps.cache_apptainer.outputs.cache-hit}}" != "true" ] && \
       {
       mkdir '${{ inputs.path }}';
-      wget --no-verbose -P '${{ inputs.path }}' https://zenodo.org/records/15630519/files/${{ inputs.tag }}.sif
+      NEWEST_VER_URL=$(curl -Ls -o /dev/null -w %{url_effective}  https://doi.org/10.5281/zenodo.15591477)
+      wget --no-verbose -P '${{ inputs.path }}' $NEWEST_VER_URL/files/${{ inputs.tag }}.sif
       } \
       || \
       true
